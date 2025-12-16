@@ -1,113 +1,70 @@
-# video-uploader-
-# 🎬 Asynchronous Video Processing System
+# Getting Started with Create React App
 
-This project is a full-stack asynchronous video upload and processing system built using **React**, **Node.js**, **Express**, and **PostgreSQL**.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It simulates real-world video platforms (like YouTube or cloud media services) where uploading a video and processing it are treated as separate responsibilities.
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## Features
+### `npm start`
 
-- Upload video files (max 200 MB)
-- Supported input formats:
-  - MP4
-  - MOV
-  - WebM
-- Automatic creation of multiple output variants per video
-- Asynchronous task processing
-- Task lifecycle tracking:
-  - QUEUED
-  - PROCESSING
-  - COMPLETED
-  - FAILED
-- Real-time task status updates
-- Download processed videos
-- Delete videos and associated tasks
-- Backend-enforced validation and security
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Tech Stack
+### `npm test`
 
-### Frontend
-- React
-- HTML, CSS
-- Fetch API
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Backend
-- Node.js
-- Express.js
-- Multer (file uploads)
-- PostgreSQL
-- pg (Postgres client)
+### `npm run build`
 
----
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 📁 Project Structure
-video-uploader/
-│
-├── backend/
-│ ├── server.js
-│ ├── db.js
-│ ├── uploads/
-│ └── package.json
-│
-├── frontend/
-│ └── src/
-│ ├── App.js
-│ ├── App.css
-│ └── index.js
-│
-├── database.sql
-├── README.md
-└── DESIGN_NOTES.md
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-How the Application Works
+### `npm run eject`
 
-This application is an asynchronous video upload and processing system designed to simulate how real-world video platforms handle large media files without blocking user interactions.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Video Upload
-The user uploads a video file through the frontend interface.
-Only video files of type MP4, MOV, or WebM are allowed.
-The maximum file size is 200 MB.
-File type restrictions are enforced at both frontend and backend levels to prevent invalid uploads.
-Once the user selects a valid video and clicks Upload, the request is sent to the backend server.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Immediate Response & Task Creation
-The backend performs the following actions:
-Validates the file size and format.
-Stores the uploaded video file on the server
-Saves video metadata in the database.
-Automatically creates multiple processing tasks for the uploaded video (one per output variant).
-The upload request returns immediately after task creation, without waiting for processing to finish.
-This ensures the application remains fast and responsive.
-Each processing task runs independently and follows a defined lifecycle:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-QUEUED → PROCESSING → COMPLETED / FAILED
-Tasks start in the QUEUED state.
-They move to PROCESSING after a short delay.
-Tasks either COMPLETED successfully or FAILED due to simulated errors.
-Processing is intentionally asynchronous to represent long-running video operations such as transcoding.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-The frontend periodically requests task updates from the backend.
-Task states are fetched every few seconds.
-The UI updates automatically to reflect the latest status.
-Users can see real-time progress without refreshing the page.
-This allows multiple videos to be in different processing states at the same time.
+## Learn More
 
-Download and Delete Operations
-Download is enabled only when a task reaches the COMPLETED state.
-The backend securely serves the processed video file.
-Delete removes both:
-The video file from the server
-Associated database records
-This ensures data consistency and prevents unused files from remaining on the system.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Failure Handling
-Some tasks may fail during processing.
-Failed tasks store error information in the database.
-The UI clearly indicates failed states.
-Users can delete failed tasks and videos safely.
-This models real-world scenarios where processing may not always succeed.
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
