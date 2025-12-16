@@ -1,0 +1,26 @@
+video-compression-app/
+│
+├── server.js
+│
+├── routes/
+│   └── uploadRoutes.js
+│
+├── controllers/
+│   └── uploadController.js
+│
+├── middlewares/
+│   └── multerConfig.js
+│
+├── services/
+│   └── videoCompressService.js
+│
+├── uploads/
+│   └── original/
+│
+├── outputs/
+│   ├── 420p/
+│   ├── 720p/
+│   └── 1080p/
+│
+├── package.json
+└── node_modules/
