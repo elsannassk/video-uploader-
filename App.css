@@ -1,0 +1,37 @@
+body {
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  font-family: Arial;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  color: white;
+}
+
+.card {
+  background: white;
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: white;
+}
+
+.QUEUED { background: gray; }
+.PROCESSING { background: orange; }
+.COMPLETED { background: green; }
+.FAILED { background: red; }
